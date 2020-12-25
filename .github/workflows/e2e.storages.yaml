@@ -21,7 +21,7 @@ on:
   push:
     branches:
       - master
-
+      - es10
 env:
   SKIP_TEST: true
   SW_AGENT_JDK_VERSION: 8
