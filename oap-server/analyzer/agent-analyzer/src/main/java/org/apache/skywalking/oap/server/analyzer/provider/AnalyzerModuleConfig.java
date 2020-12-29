@@ -123,6 +123,17 @@ public class AnalyzerModuleConfig extends ModuleConfig {
     private List<Integer> virtualPeers;
 
     /**
+     * Ignore No Statement .
+     * <p>
+     * 1. Default(YES) means sqlStatement cannot be empty, it is ignored if it is empty .
+     * <p>
+     * 2. NO means, will give a default value [No statement] to collect DatabaseSlowStatement.
+     */
+    @Setter
+    @Getter
+    private boolean ignoreNoStatement = true ;
+
+    /**
      * @param componentId of the exit span
      * @return true, means should not generate the instance relationship for the client-side exit span.
      */
