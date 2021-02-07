@@ -101,7 +101,7 @@ core:
     # Define the set of span tag keys, which should be searchable through the GraphQL.
     searchableTracesTags: ${SW_SEARCHABLE_TAG_KEYS:http.method,status_code,db.type,db.instance,mq.queue,mq.topic,mq.broker}
     # Define the set of log tag keys, which should be searchable through the GraphQL.
-    searchableLogsTags: ${SW_SEARCHABLE_LOGS_TAG_KEYS:""}
+    searchableLogsTags: ${SW_SEARCHABLE_LOGS_TAG_KEYS:level}
 storage:
   selector: ${SW_STORAGE:h2}
   elasticsearch:
@@ -217,6 +217,10 @@ agent-analyzer:
 
 log-analyzer:
   selector: ${SW_LOG_ANALYZER:default}
+  default:
+
+event-analyzer:
+  selector: ${SW_EVENT_ANALYZER:default}
   default:
 
 receiver-sharing-server:
@@ -422,3 +426,7 @@ configuration-discovery:
   selector: ${SW_CONFIGURATION_DISCOVERY:default}
   default:
     disableMessageDigest: ${SW_DISABLE_MESSAGE_DIGEST:false}
+
+receiver-event:
+  selector: ${SW_RECEIVER_EVENT:default}
+  default:
